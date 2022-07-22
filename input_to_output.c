@@ -3,10 +3,13 @@
 int main () {
     /* Copy input to output first version */
     int c;
+    int check;
 
-    c = getchar();
-    while (c != EOF) {
+    while ((c = getchar()) != EOF) {
         putchar(c);
-        c = getchar();
     }
+
+    check = (getchar() != EOF);
+    printf("\n%d\n", EOF);
+    printf("%d\n", check);
 }
