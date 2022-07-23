@@ -4,16 +4,9 @@
 #define STEP 20
 #define LOWER 0
 
-void fahrenheit();
-void print_input();
 
-int main () {
-    fahrenheit();
-    //print_input();
-
-}
-
-void fahrenheit() {
+int fahrenheit()
+{
     int fahr;
 
     printf("Fahrenheit   Celsius\n");
@@ -21,7 +14,8 @@ void fahrenheit() {
         printf("%10d   %6.1f\n", fahr, (5.0/9.0)*(fahr-32));
 }
 
-void print_input() {
+int print_input()
+{
     int c;
     int check;
 
@@ -32,4 +26,32 @@ void print_input() {
     check = (getchar() != EOF);
     printf("\n%d\n", EOF);
     printf("%d\n", check);
+}
+
+int count_characters_while()
+{
+    long nc;
+
+    nc = 0;
+    while (getchar() != EOF)
+        ++nc;
+    printf("%ld\n", nc);
+}
+
+int count_characters_for()
+{
+    // Use control d to exit
+    double nc;
+
+    // not sure what this error means
+    for (nc = 0; getchar() != EOF; ++nc)
+        ;
+    printf("%.0f\n", nc);
+}
+
+int main () {
+    //fahrenheit();
+    //print_input();
+    //count_characters_while();
+    count_characters_for();
 }
