@@ -3,4 +3,4 @@ project(C C)
 
 set(CMAKE_C_STANDARD 17)
 
-add_executable(C main.c)
+add_executable(C assignments_and_examples.c)
