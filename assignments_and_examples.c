@@ -102,6 +102,30 @@ int replace_multiple_blanks_with_single()
     }
 }
 
+int replace_real_characters()
+{
+    // 1.10
+    int c;
+
+    while ((c = getchar()) != EOF) {
+        if (c == '\t') {
+            putchar('\\');
+            putchar('t');
+            putchar('\n');
+        }
+        if (c == '\b') {
+            putchar('\\');
+            putchar('b');
+            putchar('\n');
+        }
+        if (c == '\\') {
+            putchar('\\');
+            putchar('\\');
+            putchar('\n');
+        }
+    }
+}
+
 int main () {
     //fahrenheit();
     //print_input();
@@ -109,5 +133,6 @@ int main () {
     //count_characters_for();
     //count_lines();
     //count_more();
-    replace_multiple_blanks_with_single();
+    //replace_multiple_blanks_with_single();
+    replace_real_characters();
 }
