@@ -220,7 +220,8 @@ int d_w_o_counter()
     printf(", white space = %d, other = %d\n", nwhite, nother);
 }
 
-int histogram_length_of_words() {
+int histogram_length_of_words()
+{
     // 1.13
     // I know that the histogram is not aligned next to each other
     // And I could make it that it works that way, but I have more things
@@ -245,6 +246,62 @@ int histogram_length_of_words() {
     }
 }
 
+int histogram_char_frequencies()
+{
+    // 1.14
+
+    int c, i, char_counter, word_counter, filled_indexes, current_index;
+    int chars[99];
+    int len_words[99];
+
+    /* In the end filled_indexes (+ 1), will be the amount of words in the line */
+
+    char_counter = word_counter = filled_indexes = current_index = 0;
+
+    while ((c = getchar()) != EOF) {
+        if (c == ' ' || c == '\t') {
+            /* If there is blank space or tab */
+            len_words[word_counter] = char_counter;
+            ++word_counter;
+        } else if (c == '\n') {
+
+            while (len_words[filled_indexes] != '\0')
+                ++filled_indexes;
+
+            while (len_words[current_index] != '\0') {
+                for (i = 0; i < filled_indexes; ++i)
+                if (len_words[current_index]) {
+
+                }
+
+
+                ++current_index;
+            }
+            /* If there is a newline */
+            //printf("%d chars long\n", char_counter);
+            //printf(" __ \n");
+            //while (char_counter != 0) {
+            //    printf("|  |\n");
+            //    --char_counter;
+            //}
+            //printf("\n");
+
+        } else
+            /* If the word continues */
+            ++char_counter;
+    }
+
+    // bier drinken
+    //4 en 5 woorden
+
+    //      __
+    //  __ |  |
+    // |  ||  |
+    // |  ||  |
+    // |  ||  |
+    // |  ||  |
+}
+
 
 int main () {
     //fahrenheit();
@@ -257,5 +314,6 @@ int main () {
     //replace_real_characters();
     //word_per_line_2();
     //d_w_o_counter();
-    histogram_length_of_words();
+    //histogram_length_of_words();
+    histogram_char_frequencies();
 }
