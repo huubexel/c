@@ -149,6 +149,9 @@ int replace_real_characters()
 
 int word_per_line_2()
 {
+    // you can probably do this with putchar(c)
+    // and without an array, which is also cool.
+
     int c, i, counter;
     int word_array[99]; /* make array for one word at the time */
 
@@ -217,6 +220,31 @@ int d_w_o_counter()
     printf(", white space = %d, other = %d\n", nwhite, nother);
 }
 
+int histogram_length_of_words() {
+    // 1.13
+    // I know that the histogram is not aligned next to each other
+    // And I could make it that it works that way, but I have more things
+    // to do in live.
+
+    int c, counter;
+
+    counter = 0;
+
+    while ((c = getchar()) != EOF) {
+        if (c == '\n' || c == ' ' || c == '\t') {
+            //for (i = counter; )
+            printf("%d chars long\n", counter);
+            printf(" __ \n");
+            while (counter != 0) {
+                printf("|  |\n");
+                --counter;
+            }
+            printf("\n");
+        } else
+            ++counter;
+    }
+}
+
 
 int main () {
     //fahrenheit();
@@ -229,4 +257,5 @@ int main () {
     //replace_real_characters();
     //word_per_line_2();
     //d_w_o_counter();
+    histogram_length_of_words();
 }
