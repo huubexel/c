@@ -14,5 +14,11 @@ int main(int argc, char *argv[]) {
     int stocks;
     float pricePerStock, percFirstYear, percSecondYear;
     scanf("%d %f %f %f", &stocks, &pricePerStock, &percFirstYear, &percSecondYear);
-    printf("%d %f %f %f", stocks, pricePerStock, percFirstYear, percSecondYear);
+    float yearOne = (stocks * pricePerStock) * (percFirstYear / 100);
+    float yearTwo = ((stocks * pricePerStock) + yearOne) * (percSecondYear / 100);
+    //switch () {
+
+    //}
+    // hier een switch maken voor minder dan 0, 0 en meer dan 0.
+    printf("%f\n", ((stocks * pricePerStock) + yearOne) + yearTwo);
 }
