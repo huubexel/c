@@ -18,9 +18,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="beba0034-612a-4904-9da9-830ece9ca46d" name="Changes" comment="Set everthing up on my laptop and got part of the stockMarket.c">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="beba0034-612a-4904-9da9-830ece9ca46d" name="Changes" comment="Starting today, hoping to finish my assignments quick">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/impprog/week1/stockMarket/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/impprog/week1/stockMarket/a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/impprog/week1/stockMarket/stockMarket.c" beforeDir="false" afterPath="$PROJECT_DIR$/impprog/week1/stockMarket/stockMarket.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +44,7 @@
     <option name="minorVersion" value="2.1" />
   </component>
   <component name="ProjectId" id="2EZxjirYtG5TfGZ57cdsH5tjDWC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -65,9 +67,9 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -80,6 +82,8 @@
       <option name="presentableId" value="Default" />
       <updated>1662817045336</updated>
       <workItem from="1662817047076" duration="1720000" />
+      <workItem from="1662876938584" duration="6642000" />
+      <workItem from="1662890588502" duration="144000" />
     </task>
     <task id="LOCAL-00001" summary="Set everthing up on my laptop and got part of the stockMarket.c">
       <created>1662818720386</created>
@@ -88,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662818720386</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Starting today, hoping to finish my assignments quick">
+      <created>1662877020025</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662877020025</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +118,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Set everthing up on my laptop and got part of the stockMarket.c" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set everthing up on my laptop and got part of the stockMarket.c" />
+    <MESSAGE value="Starting today, hoping to finish my assignments quick" />
+    <option name="LAST_COMMIT_MESSAGE" value="Starting today, hoping to finish my assignments quick" />
   </component>
 </project>
