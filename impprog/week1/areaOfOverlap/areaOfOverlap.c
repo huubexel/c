@@ -12,9 +12,9 @@
 
 int main(int argc, char *argv[]) {
     /* Input */
-    int int1, int2, int3, int4, int5, int6, int7, int8;
-    scanf("%d %d %d %d", &int1, &int2, &int3, &int4);
-    scanf("%d %d %d %d", &int5, &int6, &int7, &int8);
+    int in1, in2, in3, in4, in5, in6, in7, in8;
+    scanf("%d %d %d %d", &in1, &in2, &in3, &in4);
+    scanf("%d %d %d %d", &in5, &in6, &in7, &in8);
 
     /* How to read these 8 variables, for example x1Rec1:
      * x --> x-ass value for this point, y being the y-ass value for this point
@@ -23,45 +23,43 @@ int main(int argc, char *argv[]) {
     int x1Rec1, y1Rec1, x2Rec1, y2Rec1;
     int x1Rec2, y1Rec2, x2Rec2, y2Rec2;
 
-    /* For my equation I will need the two points where this program does the calculations on
-     * to be the bottom-left point and the top-right point, this will make sure that is the case.
-     *
-     * For the bottom-left point, it will take the lowest x and lowest y from the points that are given
-     * and for the top-right point, it will take the highest x and highest y */
-
-    if (int1 > int3) {
-        x2Rec1 = int1;
-        x1Rec1 = int3;
+    /* For the equation I will need the two points of each rectangle to be
+     * the bottom-left point and the top-right point,
+     * the code below will make sure that is the case. */
+    if (in1 > in3) {
+        x2Rec1 = in1;
+        x1Rec1 = in3;
     } else {
-        x2Rec1 = int3;
-        x1Rec1 = int1;
+        x2Rec1 = in3;
+        x1Rec1 = in1;
     }
 
-    if (int2 > int4) {
-        y2Rec1 = int2;
-        y1Rec1 = int4;
+    if (in2 > in4) {
+        y2Rec1 = in2;
+        y1Rec1 = in4;
     } else {
-        y2Rec1 = int4;
-        y1Rec1 = int2;
+        y2Rec1 = in4;
+        y1Rec1 = in2;
     }
 
-    if (int5 > int7) {
-        x2Rec2 = int5;
-        x1Rec2 = int7;
+    if (in5 > in7) {
+        x2Rec2 = in5;
+        x1Rec2 = in7;
     } else {
-        x2Rec2 = int7;
-        x1Rec2 = int5;
+        x2Rec2 = in7;
+        x1Rec2 = in5;
     }
 
-    if (int6 > int8) {
-        y2Rec2 = int6;
-        y1Rec2 = int8;
+    if (in6 > in8) {
+        y2Rec2 = in6;
+        y1Rec2 = in8;
     } else {
-        y2Rec2 = int8;
-        y1Rec2 = int6;
+        y2Rec2 = in8;
+        y1Rec2 = in6;
     }
 
-    // hier dat stukje wat ik heb afgesproken met mezelf neerzetten.
+    /* Here I make sure that rectangle1 will always be the rectangle with
+     * the lowest y-point of both rectangles. */
     if (y1Rec2 < y1Rec1 || (y1Rec2 == y1Rec1 && x1Rec2 < x1Rec1)) {
         int temp1, temp2, temp3, temp4;
         temp1 = x1Rec2;
@@ -78,17 +76,12 @@ int main(int argc, char *argv[]) {
         y2Rec1 = temp4;
     }
 
-    printf("%d %d %d %d\n", x1Rec1, y1Rec1, x2Rec1, y2Rec1);
-    printf("%d %d %d %d\n", x1Rec2, y1Rec2, x2Rec2, y2Rec2);
-
-
-    /* overlapX1 is the left-under x point of overlapping etc*/
     int x, y;
-    int overlapX1, overlapX2, overlapY1, overlapY2;
 
     if (x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) {
         x = 0;
     } else {
+        int overlapX1, overlapX2;
         if (x1Rec1 > x1Rec2) {
             overlapX1 = x1Rec1;
         } else {
@@ -106,6 +99,7 @@ int main(int argc, char *argv[]) {
     if (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1) {
         y = 0;
     } else {
+        int = overlapY1, overlapY2;
         if (y2Rec1 < y2Rec2) {
             overlapY2 = y2Rec1;
         } else {
@@ -113,7 +107,7 @@ int main(int argc, char *argv[]) {
         }
 
         /* Because I made sure to always put the rectangle with the lowest
-         * y-point as rectangle1, this is always the case */
+         * y-point as rectangle1, this is always true */
         overlapY1 = y1Rec2;
 
         y = overlapY1 - overlapY2;
@@ -125,5 +119,4 @@ int main(int argc, char *argv[]) {
     int a = x * y;
 
     printf("%d\n", a);
-
 }
