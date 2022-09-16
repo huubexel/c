@@ -58,63 +58,31 @@ int main(int argc, char *argv[]) {
         y1Rec2 = in6;
     }
 
-    /* Here I make sure that rectangle1 will always be the rectangle with
-     * the lowest y-point of both rectangles. */
-    if (y1Rec2 < y1Rec1 || (y1Rec2 == y1Rec1 && x1Rec2 < x1Rec1)) {
-        int temp1, temp2, temp3, temp4;
-        temp1 = x1Rec2;
-        temp2 = y1Rec2;
-        temp3 = x2Rec2;
-        temp4 = y2Rec2;
-        x1Rec2 = x1Rec1;
-        y1Rec2 = y1Rec1;
-        x2Rec2 = x2Rec1;
-        y2Rec2 = y2Rec1;
-        x1Rec1 = temp1;
-        y1Rec1 = temp2;
-        x2Rec1 = temp3;
-        y2Rec1 = temp4;
-    }
-
     int x, y;
-
-    int overlapX1, overlapX2; // Make sure to put these in the else at the end, this is pure for the print to work
-    int overlapY1, overlapY2; // Make sure to put these in the else at the end, this is pure for the print to work
 
     if (x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) {
         x = 0;
     } else {
-        if (x1Rec1 > x1Rec2) {
-            overlapX1 = x1Rec1;
-        } else {
-            overlapX1 = x1Rec2;
-        }
-        if (x2Rec1 < x2Rec2) {
-            overlapX2 = x2Rec1;
-        } else {
-            overlapX2 = x2Rec2;
-        }
-        x = overlapX1 - overlapX2;
+        printf("point1x: %d \npoint2x: %d\n", (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2), (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2));
+
+        /* Calculates the 2 x-points from the overlapping area points.
+         * x will be the length of the x-line of the overlapping area.
+         * The left part of the x calculates the left-bottom x and
+         * the right part calculates the top-right x.
+         * If rectangle 1 is more left than rectangle 2,
+         * it will give x1Rec2 and x2Rec1, other way around it will give x1Rec1, x2Rec2 */
+        x = (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2) - (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2);
     }
 
     if (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1) {
         y = 0;
     } else {
-        if (y2Rec1 < y2Rec2) {
-            overlapY2 = y2Rec1;
-        } else {
-            overlapY2 = y2Rec2;
-        }
+        printf("point1y: %d \npoint2y: %d\n", (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2), (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2));
 
         /* Because I made sure to always put the rectangle with the lowest
-         * y-point as rectangle1, this is always true  */
-        overlapY1 = y1Rec2;
-
-        y = overlapY1 - overlapY2;
+         * y-point as rectangle1, the y-point1 value is always y1Rec2 */
+        y = (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2) - (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2);
     }
-
-    printf("point1 (%d, %d)\n", overlapX1, overlapY1);
-    printf("point2 (%d, %d)\n", overlapX2, overlapY2);
 
     int a = x * y;
 
