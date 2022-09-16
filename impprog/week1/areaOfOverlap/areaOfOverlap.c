@@ -6,6 +6,13 @@
 /* Description:
  */
 
+// Als 1 van de vierkanten in de ander zit, dan gaat de kleinste bovenaan de calculatie
+
+// Dus stel de y waarde van beide is hetzelfde (de x-lijnen zijn op dezelfde hoogtes),
+// Dan is diegene die bovenaan moet is degene met de kleinste x-waarde
+// Dit geld ook als de x waarde van beide hetzelfde is.
+
+
 // Edge cases:
 // 1. ze hebben precies hetzelfde startpunt. Bijvoorbeeld allebei 0,0
 // 2. 2 points of 1 rect are in another rect en dit links of onder. 1 groter dan de ander.
@@ -69,8 +76,6 @@ int main(int argc, char *argv[]) {
     /* The rectangle, which lowest x is higher than the other rectangles'
      * lowest x, has to be rectangle1 in my equation, if that is not the case
      * this will switch the two rectangles */
-    //|| x1Rec1 == x1Rec2 && (y2Rec2 < y2Rec1)
-    // Of dit nu echt nodig is, no one knows.
     if (x1Rec1 < x1Rec2 || (x1Rec1 == x1Rec2 && (y2Rec2 < y2Rec1 || x2Rec2 < x2Rec1))) {
         int temp1, temp2, temp3, temp4;
         temp1 = x1Rec2;
@@ -91,23 +96,26 @@ int main(int argc, char *argv[]) {
     printf("%d %d %d %d\n", x1Rec2, y1Rec2, x2Rec2, y2Rec2);
 
 
+    // Wat er dan fout gaat, is dat ze allebei dezelfde y hebben, die lijnen.
+
     int x, y;
-    int calc1, calc2, calc3, calc4;
+    int endLineX, startLineX, topLineY, bottomLineY;
+
     if (x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) {
         x = 0;
     } else {
         if (x2Rec1 < x2Rec2) {
-            calc1 = x2Rec1;
+            endLineX = x2Rec1;
         } else {
-            calc1 = x2Rec2;
+            endLineX = x2Rec2;
         }
         if (x1Rec1 > x1Rec2) {
-            calc2 = x1Rec1;
+            startLineX = x1Rec1;
         } else {
-            calc2 = x1Rec2;
+            startLineX = x1Rec2;
         }
-        printf("calc1 %d calc2 %d\n\n", calc1, calc2);
-        x = calc1 - calc2;
+        printf("endLineX %d startLineX %d\n\n", endLineX, startLineX);
+        x = endLineX - startLineX;
     }
 
 
@@ -116,26 +124,20 @@ int main(int argc, char *argv[]) {
         printf("het is y\n");
     } else {
         if (y2Rec1 < y2Rec2) {
-            calc3 = y2Rec1;
+            topLineY = y2Rec1;
         } else {
-            calc3 = y2Rec2;
+            topLineY = y2Rec2;
         }
 
         if (y1Rec1 > y1Rec2) {
-            calc4 = y1Rec1;
+            bottomLineY = y1Rec1;
         } else {
-            calc4 = x2Rec2;
+            bottomLineY = x2Rec2;
         }
 
-        printf("calc3 %d calc4 %d\n\n", calc3, calc4);
+        printf("topLineY %d bottomLineY %d\n\n", topLineY, bottomLineY);
 
-        y = calc3 - calc4;
-    }
-
-    // Dit is exception nummer 1.
-    if (x1Rec1 == x1Rec2 && y1Rec1 == y1Rec2) {
-        // Dit kun je als laatst oplossen, ik denk dat dit mogelijk verholpen is
-        // als die laatste ook verholpen is.
+        y = topLineY - bottomLineY;
     }
 
     int a = x * y;
