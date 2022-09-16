@@ -78,10 +78,12 @@ int main(int argc, char *argv[]) {
 
     int x, y;
 
+    int overlapX1, overlapX2; // Make sure to put these in the else at the end, this is pure for the print to work
+    int overlapY1, overlapY2; // Make sure to put these in the else at the end, this is pure for the print to work
+
     if (x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) {
         x = 0;
     } else {
-        int overlapX1, overlapX2;
         if (x1Rec1 > x1Rec2) {
             overlapX1 = x1Rec1;
         } else {
@@ -95,11 +97,9 @@ int main(int argc, char *argv[]) {
         x = overlapX1 - overlapX2;
     }
 
-
     if (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1) {
         y = 0;
     } else {
-        int = overlapY1, overlapY2;
         if (y2Rec1 < y2Rec2) {
             overlapY2 = y2Rec1;
         } else {
