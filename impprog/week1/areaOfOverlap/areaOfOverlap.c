@@ -107,7 +107,7 @@ int main(int argc, char *argv[]) {
         }
 
         /* Because I made sure to always put the rectangle with the lowest
-         * y-point as rectangle1, this is always true */
+         * y-point as rectangle1, this is always true  */
         overlapY1 = y1Rec2;
 
         y = overlapY1 - overlapY2;
