@@ -4,6 +4,11 @@
 /* version: 1.0 */
 
 /* Description:
+ * This program takes 8 integers on 2 lines (4 per line) as input.
+ * Each line are 2 points of one rectangle, these points must be
+ * the exact opposite of each other: (bottom-left && top-right) || (bottom-right && top-left).
+ * For each point, you have to fill in the x-value first, and second the y-value.
+ * The output gives you the area of overlap of the 2 rectangles.
  */
 
 #include <stdio.h>
@@ -59,29 +64,26 @@ int main(int argc, char *argv[]) {
     }
 
     if ((x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) || (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1)) {
+        /* If this is true, then there is no area of overlap. */
         printf("0\n");
     } else {
         int x, y;
 
-        printf("point1x: %d \npoint2x: %d\n", (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2), (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2));
-
-        /* x = length of the line from bottom-left point to bottom-right point, from area of overlap.
-         * Left part of x calculates the bottom-left x-value of overlapping area. // deze 2 zijn misschien net andersom.
+        /* x = length of the line between bottom-left point and bottom-right point, from area of overlap.
+         * Left part of x calculates the bottom-left x-value of overlapping area.
          * Right part of x calculates the bottom-right x-value of overlapping area.
          * If rectangle 1 is left from rectangle 2, x = x1Rec2 - x2Rec1,
          * other way around x = x1Rec1 - x2Rec2 */
         x = (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2) - (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2);
 
-        printf("point1y: %d \npoint2y: %d\n", (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2), (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2));
-
-        // y = length of the line from the bottom-left point to the top-left point, from the area of overlap.
-        /* y will be the length of the y-line of the overlapping area. // Voor deze zin moet nog iets komen.
+        /* y = length of the line between bottom-left point and top-left point, from area of overlap.
          * Left part of y calculates the bottom-left y-value of overlapping area.
          * Right part of y calculates the top-left y-value of overlapping area.
-         * If rectangle 1 is left from rectangle 2, x = x1Rec2 - x2Rec1,
+         * If rectangle 1 is left from rectangle 2, y = x1Rec2 - x2Rec1,
          * other way around x = x1Rec1 - x2Rec2 */
         y = (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2) - (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2);
 
         printf("%d\n", x * y); /* Print area of overlap */
     }
+    return 0;
 }
