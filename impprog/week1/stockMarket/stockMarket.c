@@ -6,7 +6,7 @@
 /* Description:
  * Input (in this order): number of stocks, price per stock,
  * profit or loss percentage over those stocks in the first year and
- * profit or loss percentage over those stocks in the second year.
+ * profit or loss percentage over those stocks (including first years' percentage) in the second year.
  * Output: Profit, Loss or Tie and if the profit or loss is higher than one cent,
  * it also outputs how much is gained or lost in those two years.
  */
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
     float pricePerStock, percFirstYear, percSecondYear;
     scanf("%d %f %f %f", &stocks, &pricePerStock, &percFirstYear, &percSecondYear);
 
-    /* Profit or loss percentage year 1 and year 2 */
+    /* Profit or loss year 1 and year 2 */
     float yearOne = (stocks * pricePerStock) * (percFirstYear / 100);
     float yearTwo = ((stocks * pricePerStock) + yearOne) * (percSecondYear / 100);
 

@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     /* How to read these 8 variables, for example x1Rec1:
      * x --> x-ass value for this point, y being the y-ass value for this point
      * 1 --> bottom-left point, 2 being the top-right point
-     * Rec1 --> from rectangular 1, Rec2 being from rectangular 2 */
+     * Rec1 --> from rectangle 1, Rec2 being from rectangle 2 */
     int x1Rec1, y1Rec1, x2Rec1, y2Rec1;
     int x1Rec2, y1Rec2, x2Rec2, y2Rec2;
 
@@ -79,8 +79,8 @@ int main(int argc, char *argv[]) {
         /* y = length of the line between bottom-left point and top-left point, from area of overlap.
          * Left part of y calculates the bottom-left y-value of overlapping area.
          * Right part of y calculates the top-left y-value of overlapping area.
-         * If rectangle 1 is left from rectangle 2, y = x1Rec2 - x2Rec1,
-         * other way around x = x1Rec1 - x2Rec2 */
+         * If rectangle 1 is higher than rectangle 2, y = y1Rec1 - y2Rec2,
+         * other way around y = y1Rec2 - y2Rec1 */
         y = (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2) - (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2);
 
         printf("%d\n", x * y); /* Print area of overlap */
