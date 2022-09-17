@@ -58,11 +58,11 @@ int main(int argc, char *argv[]) {
         y1Rec2 = in6;
     }
 
-    int x, y;
-
-    if (x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) { /* If this triggers, there is no area of overlap. */
-        x = 0;
+    if ((x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) || (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1)) {
+        printf("0\n");
     } else {
+        int x, y;
+
         printf("point1x: %d \npoint2x: %d\n", (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2), (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2));
 
         /* x = length of the line from bottom-left point to bottom-right point, from area of overlap.
@@ -71,11 +71,7 @@ int main(int argc, char *argv[]) {
          * If rectangle 1 is left from rectangle 2, x = x1Rec2 - x2Rec1,
          * other way around x = x1Rec1 - x2Rec2 */
         x = (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2) - (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2);
-    }
 
-    if (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1) { /* If this triggers, there is no area of overlap. */
-        y = 0;
-    } else {
         printf("point1y: %d \npoint2y: %d\n", (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2), (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2));
 
         // y = length of the line from the bottom-left point to the top-left point, from the area of overlap.
@@ -85,7 +81,7 @@ int main(int argc, char *argv[]) {
          * If rectangle 1 is left from rectangle 2, x = x1Rec2 - x2Rec1,
          * other way around x = x1Rec1 - x2Rec2 */
         y = (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2) - (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2);
-    }
 
-    printf("%d\n", x * y); /* Print area of overlap */
+        printf("%d\n", x * y); /* Print area of overlap */
+    }
 }
