@@ -1,23 +1,24 @@
 /* file: scrapPaper.c */
 /* author: Huub Exel (email: h.exel@student.rug.nl) */
-/* date: Sat Sep 10 2022 */
+/* date: Sat Sep 17 2022 */
 /* version: 1.0 */
 
 /* Description:
- * This program calculates how many packages of sheets will be needed with
- * the amount of students that will be attending the exam and
- * the amount of sheets every attending student will get
- */
+ * This program takes 3 integers (in this order) as input:
+ * amount of students, sheets per student attending, sheets in 1 package.
+ * It calculates how many packages will be needed and outputs it.
+ * */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
 int main(int argc, char *argv[]) {
+    /* Input */
     int students, sheets, sheetsInPackage;
     scanf("%d %d %d", &students, &sheets, &sheetsInPackage);
 
-    // The version of the conditional with the ternary operator, wouldn't make this any prettier.
+    /* This calculates and prints the number of packages needed according to the input */
     if ((students * sheets) % sheetsInPackage) {
         printf("%d\n", (students * sheets) / sheetsInPackage + 1);
     } else {
