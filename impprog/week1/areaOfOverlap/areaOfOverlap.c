@@ -1,6 +1,6 @@
 /* file: areaOfOverlap.c */
 /* author: Huub Exel (email: h.exel@student.rug.nl) */
-/* date: Sat Sep 13 2022 */
+/* date: Sat Sep 17 2022 */
 /* version: 1.0 */
 
 /* Description:
@@ -60,31 +60,32 @@ int main(int argc, char *argv[]) {
 
     int x, y;
 
-    if (x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) {
+    if (x1Rec2 > x2Rec1 || x2Rec2 < x1Rec1) { /* If this triggers, there is no area of overlap. */
         x = 0;
     } else {
         printf("point1x: %d \npoint2x: %d\n", (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2), (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2));
 
-        /* Calculates the 2 x-points from the overlapping area points.
-         * x will be the length of the x-line of the overlapping area.
-         * The left part of the x calculates the left-bottom x and
-         * the right part calculates the top-right x.
-         * If rectangle 1 is more left than rectangle 2,
-         * it will give x1Rec2 and x2Rec1, other way around it will give x1Rec1, x2Rec2 */
+        /* x = length of the line from bottom-left point to bottom-right point, from area of overlap.
+         * Left part of x calculates the bottom-left x-value of overlapping area. // deze 2 zijn misschien net andersom.
+         * Right part of x calculates the bottom-right x-value of overlapping area.
+         * If rectangle 1 is left from rectangle 2, x = x1Rec2 - x2Rec1,
+         * other way around x = x1Rec1 - x2Rec2 */
         x = (x1Rec1 > x1Rec2 ? x1Rec1 : x1Rec2) - (x2Rec1 < x2Rec2 ? x2Rec1 : x2Rec2);
     }
 
-    if (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1) {
+    if (y1Rec2 > y2Rec1 || y2Rec2 < y1Rec1) { /* If this triggers, there is no area of overlap. */
         y = 0;
     } else {
         printf("point1y: %d \npoint2y: %d\n", (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2), (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2));
 
-        /* Because I made sure to always put the rectangle with the lowest
-         * y-point as rectangle1, the y-point1 value is always y1Rec2 */
+        // y = length of the line from the bottom-left point to the top-left point, from the area of overlap.
+        /* y will be the length of the y-line of the overlapping area. // Voor deze zin moet nog iets komen.
+         * Left part of y calculates the bottom-left y-value of overlapping area.
+         * Right part of y calculates the top-left y-value of overlapping area.
+         * If rectangle 1 is left from rectangle 2, x = x1Rec2 - x2Rec1,
+         * other way around x = x1Rec1 - x2Rec2 */
         y = (y1Rec1 > y1Rec2 ? y1Rec1 : y1Rec2) - (y2Rec1 < y2Rec2 ? y2Rec1 : y2Rec2);
     }
 
-    int a = x * y;
-
-    printf("%d\n", a);
+    printf("%d\n", x * y); /* Print area of overlap */
 }
