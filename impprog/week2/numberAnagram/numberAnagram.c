@@ -1,6 +1,6 @@
 /* file: numberAnagram.c */
 /* author: Huub Exel (email: h.exel@student.rug.nl) */
-/* date: Mon Sep 26 2022 */
+/* date: Tue Sep 27 2022 */
 /* version: 1.0 */
 
 /* Description:
@@ -50,15 +50,27 @@ int main() {
          * that we do have the same number, if we sum the digits of both inputs. */
         int sum1 = 0;
         int sum2 = 0;
+        int actualSum = 0;
 
         int rem1 = 10;
         for (int i = 1; (i < (len1+1)); i++) {
             sum1 += (inp1 % rem1)/(rem1/10); /* Add the current digit to sum of digits1 */
 
             int rem2 = 10;
+
+            /* This checks whether the sum of the two number actually align. */
+            if (i == 1) {
+                int rem2ForActualSum = 10;
+                for (int k = 0; k < len2; k++) {
+                    actualSum += (inp2 % rem2ForActualSum)/(rem2ForActualSum/10);
+                    rem2ForActualSum *= 10;
+                }
+            }
+
             for (int j = 0; j < len2; j++) {
                 if ((inp1 % rem1)/(rem1/10) == ((inp2 % rem2)/(rem2/10))) {
-                    sum2 += (inp2 % rem2)/(rem2/10); /* Add the current digit to sum of digits2 */
+                    sum2 += (inp2 % rem2)/(rem2/10);
+                     /* Add the current digit to sum of digits2 */
                     /* Once it finds a match, it should not on for the same number,
                      * because it has already been matched, that's why we break here */
                     break;
@@ -69,8 +81,10 @@ int main() {
             rem1 *= 10;
         }
 
-        if (sum1 == sum2) {
+        if (sum1 == sum2 && sum2 == actualSum) {
             printf("YES\n");
+        } else {
+            printf("NO\n");
         }
     } else {
         printf("NO\n");
