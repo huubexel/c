@@ -10,6 +10,21 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
+void sqrtCheck(int counter) {
+    /* This checks whether you can actually make it into a spiral and if not, stop the program!
+     * and also return the sqrt of counter */
+    double sqRootCounter = sqrt(counter);
+    int sqRC = sqRootCounter;
+
+    if((sqRC * sqRC) != counter) {
+        printf("Sorry! It is not possible to make a spiral out of this!\n");
+        exit(0);
+    }
+
+    return sqRC;
+}
 
 void *safeMalloc(int n) {
     void *p = malloc(n);
@@ -35,6 +50,8 @@ int main() {
         ptr = (int *)realloc(ptr, (sizeof(int) * (counter + 1)));
     } while(getchar() != '\n');
 
+    /* Check whether it is possible to make a spiral and return de sqrt of counter */
+    int sqrtCounter = sqrtCheck(counter);
 
     /* How to get your stuff back? */
     for (int i = 0; i < counter; i++) {
